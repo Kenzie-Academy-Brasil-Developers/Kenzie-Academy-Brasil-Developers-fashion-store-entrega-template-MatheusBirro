@@ -1,0 +1,17 @@
+.title_2{
+    color: var(--color-black);
+    font-family: 'Oswald', sans-serif;
+    font-size: var(--font-size-2-mobile);
+    font-weight: var(--font-weigth-2);
+    text-transform: uppercase;
+    width: 92%;
+    max-width: 1450px;
+    padding: 1.375rem 0;
+    margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+    .title_2{
+        font-size: var(--font-size-2);
+    }
+  }

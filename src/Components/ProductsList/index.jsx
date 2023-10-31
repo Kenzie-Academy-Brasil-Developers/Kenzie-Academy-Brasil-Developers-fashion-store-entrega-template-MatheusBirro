@@ -1,26 +1,28 @@
-import { useEffect, useState } from "react"
-import { FashionStoreApi } from "../../Services/api"
+import { useContext, useEffect, useState } from "react"
 import { ProductCard } from "./ProductCard"
+import { ProductContext } from "../../Providers/ProductsProvider"
+import styles from "./styles.module.scss"
 
 export const ProductList = () => {
-
-    const [productList, setProductList] = useState([])
+    const {productList, loadProducts} = useContext(ProductContext)
+    const [loading, setLoading] = useState(false)
 
     useEffect( () => {
-        const LoadProducts = async() =>{
-            const {data} = await FashionStoreApi.get("/products")
-            setProductList(data)
-        }
-        LoadProducts() 
+        loadProducts({setLoading}) 
     },[])
 
     return(
-        <ul>
-            {productList.map((product)=>{
-                return(
-                    <ProductCard key={product.id} product={product}/>
-                )
-            })}
-        </ul>
+        <>
+        {loading? 
+            <p>Carregando...</p> :
+            <ul className={styles.container__products}>
+                {productList.map((product)=>{
+                    return(
+                        <ProductCard key={product.id} product={product}/>
+                    )
+                })}
+            </ul>
+        }
+        </>
     )
 }

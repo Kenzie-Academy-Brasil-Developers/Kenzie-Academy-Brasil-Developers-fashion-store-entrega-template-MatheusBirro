@@ -1,0 +1,37 @@
+.product__card{
+    .product__img{
+        width: 271px;
+        height: 313px;
+        border-radius: 20px;
+    }
+    h3{
+        color: var(--color-black);
+        font-size: var(--font-size-4);
+        font-weight: var(--font-weigth-3);
+        padding: 2.3125rem 0 1.375rem 0;
+    }
+    p{
+        color: var(--color-black);
+        font-family: 'Oswald', sans-serif;
+        font-size: var(--font-size-5);
+        font-weight: var(--font-weigth-1);
+    }
+    div{
+        display: flex;
+        gap: 1.5625rem;
+        align-items: center;
+        padding: 2.0625rem 0;
+        img{
+            background-color: var(--color-black);
+            width: 60px;
+            height: 60px;
+        }
+        small{
+            color: var(--color-black);
+            font-size: var(--font-size-7);
+            font-weight: var(--font-weigth-3);
+            letter-spacing: 1.68px;
+            text-transform: uppercase;
+        }
+    }
+}
