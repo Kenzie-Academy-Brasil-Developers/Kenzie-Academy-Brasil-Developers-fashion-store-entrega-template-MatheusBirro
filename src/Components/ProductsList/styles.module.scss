@@ -1,4 +1,4 @@
-.container__products{
+.container__products {
     display: flex;
     gap: 2.5rem;
     overflow-x: scroll;
@@ -6,10 +6,11 @@
     max-width: 1450px;
     box-sizing: border-box;
 }
-@media (min-width: 1024px) {
-    .container__products{
-        margin: 0 auto;
-        padding: 2.375rem 0 4.9375rem 0;
 
+@media (min-width: 1575px) {
+    .container__products {
+        margin: 0 auto;
+        overflow-x: scroll;
+        padding: 2.375rem 0 4.9375rem 0;
     }
-  }
+}
