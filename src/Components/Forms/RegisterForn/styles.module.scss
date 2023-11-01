@@ -1,13 +1,32 @@
+.container__form{
+    padding: 2.375rem 0 0 0;
+}
+.container__btn{
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    cursor: pointer;
+    .return__btn{
+        background-color: transparent;
+        border: none;
+        color: var(--color-black);
+        font-size: var(--font-size-5);
+        font-weight: var(--font-weigth-2);
+        letter-spacing: 0.135rem;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+}
 .title__2{
     color: var(--color-black);
     font-family: 'Oswald', sans-serif;
-    font-size: var(--font-size-1-mobile);
     font-weight: var(--font-weigth-2);
     text-transform: uppercase;
     margin: 0 auto;
     padding: 2rem 0;
+    font-size: clamp(55px, 18vw, var(--font-size-1-mobile));
 }
-.login__form{
+.register__form{
     display: flex;
     flex-direction: column;
     gap: 1.1875rem;
@@ -15,21 +34,10 @@
     div{
         display: flex;
         gap: 1rem;
-        .login__btn{
+        justify-content: flex-end;
+        .register__btn{
             background-color: var(--color-black);
             color: var(--color-white);
-            width: 146px;
-            height: 60px;
-            border: 1px solid var(--color-black);
-            font-size: var(--font-size-5);
-            font-weight: var(--font-weigth-2);
-            letter-spacing: 0.135rem;
-            text-transform: uppercase;
-            margin: 25px 0;
-        }
-        .register__btn{
-            color: var(--color-black);
-            background-color: var(--color-white);
             width: 195px;
             height: 60px;
             border: 1px solid var(--color-black);
@@ -46,7 +54,7 @@
         width: 45%;
         padding: 0 0 0 3.75rem;
         .title__2{
-            font-size: var(--font-size-1);
+            font-size: clamp(55px, 18vw, var(--font-size-1-mobile));
         }
         .login__form{
             flex-direction: column;
