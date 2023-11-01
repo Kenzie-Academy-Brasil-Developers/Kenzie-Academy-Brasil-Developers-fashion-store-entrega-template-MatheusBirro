@@ -1,0 +1,23 @@
+.container__login_form{
+    width: 92%;
+    margin: 0 auto;
+    padding: 1.875rem 0 6.25rem 0;
+    display: flexbox;
+    align-items: flex-start;
+    flex-direction: column;
+    .banner__img{
+        width: 100%;
+    }
+}
+@media (min-width: 1024px) {
+    .container__login_form{
+        width: 92%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .banner__img{
+            width: 55%;
+        }
+    }
+  }

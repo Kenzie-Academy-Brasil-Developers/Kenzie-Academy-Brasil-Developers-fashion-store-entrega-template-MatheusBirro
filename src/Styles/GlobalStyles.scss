@@ -24,6 +24,21 @@
 
 }
 
+html{
+    background-color: var(--color-black);
+}
 body{
     font-family: 'Roboto', sans-serif;
+    background-color: var(--color-white);
+    input{
+        background-color: var(--color-gray);
+        height: 78px;
+        padding: 1.625rem;
+        box-sizing: border-box;
+        border: none;
+        font-family: 'Oswald', sans-serif;
+        font-size: 21px;
+        font-weight: var(--font-weigth-1);
+        text-transform: uppercase;
+    }
 }
