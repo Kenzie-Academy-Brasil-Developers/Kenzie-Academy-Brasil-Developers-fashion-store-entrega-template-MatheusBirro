@@ -6,6 +6,7 @@ export const ProductContext = createContext({})
 
 export const ProductProvider = ({children}) => {
     const [productList, setProductList] = useState([])
+    const [product, setProduct] = useState(null)
 
     const loadProducts = async ({setLoading}) => {
         try {
@@ -20,7 +21,7 @@ export const ProductProvider = ({children}) => {
     }
 
     return (
-        <ProductContext.Provider value={{ productList, loadProducts }} >
+        <ProductContext.Provider value={{ productList, loadProducts, product, setProduct }} >
             {children}
         </ProductContext.Provider>
     )

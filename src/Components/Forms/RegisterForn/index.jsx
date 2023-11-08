@@ -15,6 +15,7 @@ export const RegisterForm = () => {
     const { register, handleSubmit, formState: {errors}} = useForm({
         resolver: zodResolver(formSchemaRegister)
     });
+
     const submit = (payload) => {
         UserRegister(payload, setLoading)
     }
@@ -37,7 +38,7 @@ export const RegisterForm = () => {
                 <input type="password" placeholder="CONFIRMAR SENHA" {...register("confirmPassword")}/>
                 {errors.confirmPassword ? <small >{errors.confirmPassword.message}</small> : null }
                 <div>
-                    <button type="submit" className={styles.register__btn} >CADASTRE-SE</button>
+                    <button type="submit" className={styles.register__btn} disabled={loading} >CADASTRE-SE</button>
                 </div>
             </form>
         </div>
