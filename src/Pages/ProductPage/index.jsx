@@ -14,7 +14,7 @@ export const ProductPage = () => {
         <>
           <h3 className={styles.name__locate} >{`HOME > ${product.name}`}</h3>
           <div className={styles.card__container} >
-            <img src={product.image} alt={`Imagem do produto, ${product.name}`} />
+            <img src={product.image} alt={`Imagem do produto, ${product.name}`} className={styles.card__img} />
             <div className={styles.card__container_information} >
               <h3>{product.name}</h3>
               <p className={styles.card__price} >{product.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
