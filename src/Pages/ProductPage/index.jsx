@@ -2,7 +2,6 @@ import { useContext, useEffect } from "react"
 import { TemplatePageAuthenticated } from "../../Components/Templates/TemplatePageAuthenticated"
 import { ProductContext } from "../../Providers/ProductsProvider"
 import cartProduct from "../../assets/CartProduct.svg"
-import { ProductList } from "../../Components/ProductsList"
 import styles from "./styles.module.scss"
 import { FilteredProductList } from "../../Components/ProductsList/FilteredProductList"
 
