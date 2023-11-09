@@ -11,7 +11,6 @@ export const ProductCard = ({product}) => {
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
-            behavior: 'smooth'
         })
     }
     
@@ -24,7 +23,7 @@ export const ProductCard = ({product}) => {
                     <img src={cartProduct} alt="Adicionar ao carrinho" />
                     <small onClick={() => {
                         scrollToTop()
-                        navigate("/product")
+                        navigate(`/product/${product.name}`)
                         setProduct(product)
                         }} >SAIBA MAIS</small>
                 </div>

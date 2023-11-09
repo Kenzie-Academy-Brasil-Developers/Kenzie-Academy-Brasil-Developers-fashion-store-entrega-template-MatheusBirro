@@ -4,6 +4,7 @@ import { ProductContext } from "../../Providers/ProductsProvider"
 import cartProduct from "../../assets/CartProduct.svg"
 import { ProductList } from "../../Components/ProductsList"
 import styles from "./styles.module.scss"
+import { FilteredProductList } from "../../Components/ProductsList/FilteredProductList"
 
 export const ProductPage = () => {
   const { product } = useContext(ProductContext)
@@ -26,7 +27,7 @@ export const ProductPage = () => {
             </div>
           </div>
           <h3 className={styles.title_3} >VEJA TAMBÉM</h3>
-          <ProductList />
+          <FilteredProductList />
         </>
         :
         <p>Erro</p>}
