@@ -6,6 +6,7 @@ import { RegisterPage } from "../Pages/RegisterPage"
 import { useContext } from "react"
 import { ProductContext } from "../Providers/ProductsProvider"
 import { AdminProductPage } from "../Pages/AdminProductPage"
+import { AdminHomePage } from "../Pages/AdminHomePage"
 
 
 export const RoutesMain = () => {
@@ -17,6 +18,7 @@ export const RoutesMain = () => {
             <Route path={`/product/${product.name}`} element={<ProductPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/adminHome" element={<AdminHomePage />} />
             <Route path="/addProduct" element={<AdminProductPage />} />
         </Routes>
     )

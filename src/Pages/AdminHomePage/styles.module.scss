@@ -1,0 +1,33 @@
+.main__container {
+    display: flex;
+    flex-direction: column;
+    width: 92%;
+    max-width: 1450px;
+    margin: 0 auto;
+    gap: 1.8125rem;
+    padding: 2rem 0;
+    min-height: 65vh;
+    h2 {
+        color: var(--color-black);
+        font-family: 'Oswald', sans-serif;
+        font-size: var(--font-size-2-mobile);
+        font-weight: var(--font-weigth-2);
+        text-transform: uppercase;
+    }
+    p {
+        color: var(--color-black);
+        font-family: 'Roboto', sans-serif;
+        font-size: var(--font-size-6);
+        font-weight: var(--font-weigth-1);
+        line-height: 32px;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .main__container{
+        h2 {
+            font-size: var(--font-size-2);
+        }
+    }
+}

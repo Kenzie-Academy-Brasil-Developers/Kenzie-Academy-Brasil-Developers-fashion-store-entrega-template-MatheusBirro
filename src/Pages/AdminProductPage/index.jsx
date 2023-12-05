@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react"
-import { TemplatePageAuthenticated } from "../../Components/Templates/TemplatePageAuthenticated"
 import styles from "./styles.module.scss"
 import { ProductContext } from "../../Providers/ProductsProvider"
 import { AdminProductCard } from "../../Components/ProductsList/AdminProductCard"
 import plusBtn from "../../assets/PlusBtn.svg"
+import { TemplateAdminPage } from "../../Components/Templates/TemplatePageAdimin"
 
 export const AdminProductPage = () => {
     const {productList, loadProducts} = useContext(ProductContext)
@@ -14,11 +14,7 @@ export const AdminProductPage = () => {
     },[])
 
   return (
-    <TemplatePageAuthenticated>
-      <nav className={styles.menu__container}>
-        <button>INÍCIO</button>
-        <button>PRODUTOS</button>
-      </nav>
+    <TemplateAdminPage>
       <main className={styles.main__container}>
         <div className={styles.main__description}>
             <div className={styles.description__container}>
@@ -38,6 +34,6 @@ export const AdminProductPage = () => {
                 })}
         </ul>
       </main>
-    </TemplatePageAuthenticated>
+    </TemplateAdminPage>
   )
 }

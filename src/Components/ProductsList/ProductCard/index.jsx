@@ -6,7 +6,7 @@ import { ProductContext } from "../../../Providers/ProductsProvider"
 
 export const ProductCard = ({product}) => {
     const navigate = useNavigate()
-    const { setProduct } = useContext(ProductContext)
+    const { setProduct, addProductCart } = useContext(ProductContext)
 
     const scrollToTop = () => {
         window.scrollTo({
@@ -20,7 +20,10 @@ export const ProductCard = ({product}) => {
                 <h3>{product.name}</h3>
                 <p>{product.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
                 <div>
-                    <img src={cartProduct} alt="Adicionar ao carrinho" />
+                    <img src={cartProduct} alt="Adicionar ao carrinho" 
+                    onClick={() => {
+                        addProductCart(product)
+                    }}/>
                     <small onClick={() => {
                         scrollToTop()
                         navigate(`/product/${product.name}`)

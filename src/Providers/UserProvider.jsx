@@ -15,6 +15,7 @@ export const UserProvider = ({children}) => {
             const {data} = await FashionStoreApi.post("/login", payload)
             console.log(data);
             localStorage.setItem("@tokenUser", JSON.stringify(data.accessToken))
+            navigate("/adminHome")
             toast("Logado com sucesso!")
         } catch (error) {
             if (error.request.response === `"Cannot find user"`) {

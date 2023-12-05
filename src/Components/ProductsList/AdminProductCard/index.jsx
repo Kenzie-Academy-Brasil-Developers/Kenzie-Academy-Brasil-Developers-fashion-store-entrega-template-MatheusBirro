@@ -1,11 +1,13 @@
 import styles from "./style.module.scss"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { ProductContext } from "../../../Providers/ProductsProvider"
 import editBtn from "../../../assets/EditBtn.svg";
 import delteBtn from "../../../assets/DeleteBtn.svg";
+import { EditModal } from "../../Modal/EditProductModal";
 
 export const AdminProductCard = ({product}) => {
     const { setProduct } = useContext(ProductContext)
+    const [editIsOpen, setEditIsOpen] = useState(false)
     
     return(
             <li key={product.id} className={styles.product__card}>
@@ -16,7 +18,11 @@ export const AdminProductCard = ({product}) => {
                         <p>{product.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
                     </div>
                     <div className={styles.product__container_btn}>
-                        <img src={editBtn} alt="Simbolo de edição" />
+                        <img src={editBtn} alt="Simbolo de edição" onClick={()=>{setEditIsOpen(true)}}/>
+                        {editIsOpen?
+                            <EditModal setEditIsOpen={setEditIsOpen}/> :
+                            null
+                        }
                         <img src={delteBtn} alt="Simbolo de lixeira" />
                     </div>
                 </div>

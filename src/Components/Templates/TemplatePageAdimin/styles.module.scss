@@ -1,0 +1,19 @@
+.menu__container{
+    display: flex;
+    gap: 1rem;
+    width: 92%;
+    margin: 0 auto;
+    max-width: 1450px;
+    button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+
+        color: var(--color-black);
+        font-family: 'Oswald', sans-serif;
+        font-size: var(--font-size-6);
+        font-weight: var(--font-weigth-2);
+        text-transform: uppercase;
+    }
+}
