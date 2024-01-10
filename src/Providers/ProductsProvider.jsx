@@ -74,8 +74,45 @@ export const ProductProvider = ({children}) => {
         }
     }
 
+    const createProduct = async ( ) =>  {
+        const token = JSON.parse(localStorage.getItem('@tokenUser')) 
+        const headers = { 
+            'Authorization': `Bearer ${token}`,
+        };
+        const newProduct = {
+            "name": "Blazer Branco Elegantes",
+            "price": 490,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin massa metus, tempus nec ex ac, condimentum convallis diam. Donec at nisi lorem. Aliquam non dolor bibendum, venenatis ante ac, lobortis justo. Vestibulum nec pretium mi, eu consequat dolor.",
+            "image": "https://res.cloudinary.com/dsbkp5841/image/upload/v1687807062/Rectangle_4_hwrkgf.jpg"
+          };
+        try {
+            await FashionStoreApi.post(`/products`, newProduct, {headers})
+            setProductList([...productList, newProduct])
+            toast("Produto add com sucesso")
+        } catch (error) {
+            toast("Erro ao add o produto")
+        } 
+    }
+
+    const deleteProduct = async (id, setLoading) =>  {
+        const token = JSON.parse(localStorage.getItem('@tokenUser')) 
+        const headers = { 
+            'Authorization': `Bearer ${token}`,
+        };
+        try {
+            await FashionStoreApi.delete(`/products/${id}`, {headers})
+            const newProductList = productList.filter((product)=> product.id !== id)
+            setProductList(newProductList)
+            toast("Produto deletado com sucesso")
+        } catch (error) {
+            toast("Erro ao deletar o produto")
+        } finally{
+            setLoading(false) 
+        }
+    }
+
     return (
-        <ProductContext.Provider value={{ productList, renderProducts, product, setProduct, loadProducts, filteredProductList, addProductCart, cartProductList, priceCart, quantityProductCart, removeProductCart, cartProductListFull }} >
+        <ProductContext.Provider value={{ productList, renderProducts, product, setProduct, loadProducts, filteredProductList, addProductCart, cartProductList, priceCart, quantityProductCart, removeProductCart, cartProductListFull, deleteProduct, createProduct }} >
             {children}
         </ProductContext.Provider>
     )

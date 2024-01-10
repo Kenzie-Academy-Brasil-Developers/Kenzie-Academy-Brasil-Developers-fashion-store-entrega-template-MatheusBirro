@@ -6,8 +6,10 @@ import delteBtn from "../../../assets/DeleteBtn.svg";
 import { EditModal } from "../../Modal/EditProductModal";
 
 export const AdminProductCard = ({product}) => {
-    const { setProduct } = useContext(ProductContext)
+    const { setProduct, deleteProduct } = useContext(ProductContext)
     const [editIsOpen, setEditIsOpen] = useState(false)
+    const [loading, setLoading] = useState(false)
+    
     
     return(
             <li key={product.id} className={styles.product__card}>
@@ -23,7 +25,7 @@ export const AdminProductCard = ({product}) => {
                             <EditModal setEditIsOpen={setEditIsOpen}/> :
                             null
                         }
-                        <img src={delteBtn} alt="Simbolo de lixeira" />
+                        <img src={delteBtn} alt="Simbolo de lixeira" onClick={() => {deleteProduct(product.id, setLoading)}}/>
                     </div>
                 </div>
             </li>

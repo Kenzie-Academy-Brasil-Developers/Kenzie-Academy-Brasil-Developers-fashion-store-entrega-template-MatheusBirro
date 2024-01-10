@@ -25,6 +25,7 @@
             background-color: var(--color-black);
             width: 60px;
             height: 60px;
+            cursor: pointer;
         }
         small{
             color: var(--color-black);
@@ -32,6 +33,7 @@
             font-weight: var(--font-weigth-3);
             letter-spacing: 1.68px;
             text-transform: uppercase;
+            cursor: pointer;
         }
     }
 }

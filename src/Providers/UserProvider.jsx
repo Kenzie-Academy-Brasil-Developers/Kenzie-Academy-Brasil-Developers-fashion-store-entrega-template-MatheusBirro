@@ -13,7 +13,6 @@ export const UserProvider = ({children}) => {
         try {
             setLoading(true)
             const {data} = await FashionStoreApi.post("/login", payload)
-            console.log(data);
             localStorage.setItem("@tokenUser", JSON.stringify(data.accessToken))
             navigate("/adminHome")
             toast("Logado com sucesso!")

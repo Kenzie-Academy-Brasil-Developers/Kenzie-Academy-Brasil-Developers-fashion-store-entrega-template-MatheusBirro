@@ -6,7 +6,7 @@ import plusBtn from "../../assets/PlusBtn.svg"
 import { TemplateAdminPage } from "../../Components/Templates/TemplatePageAdimin"
 
 export const AdminProductPage = () => {
-    const {productList, loadProducts} = useContext(ProductContext)
+    const {productList, loadProducts, createProduct} = useContext(ProductContext)
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
@@ -21,7 +21,7 @@ export const AdminProductPage = () => {
                 <h2>PRODUTOS</h2>
                 <p>Gerencie os produtos do catálogo</p>
             </div>
-            <button>
+            <button onClick={() => {createProduct()}}>
                 <img src={plusBtn} alt="Simbolo de adicionar" />
                 <p>NOVO PRODUTO</p>
             </button>
