@@ -37,7 +37,7 @@ export const UserProvider = ({children}) => {
             navigate("/login")
             toast("Conta criada com sucesso!")
         } catch (error) {
-            if (error.request.response === "Email already exists") {
+            if (error.response.data === "Email already exists") {
                 toast.error("Email já cadastrado")
             }else{
                 toast.error("Ops! Algo deu errado")

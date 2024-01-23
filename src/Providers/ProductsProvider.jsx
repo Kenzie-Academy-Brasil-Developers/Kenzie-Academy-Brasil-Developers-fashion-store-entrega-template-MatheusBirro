@@ -18,6 +18,7 @@ export const ProductProvider = ({children}) => {
             setProductList(data)
             setFilteredProductList(data)
         } catch (error) {
+            console.log(error);
             toast("Erro ao carregar os produtos")
         } finally{
             setLoading(false) 
@@ -74,24 +75,40 @@ export const ProductProvider = ({children}) => {
         }
     }
 
-    const createProduct = async ( ) =>  {
+    const createProduct = async ( payload, setCreateIsOpen ) =>  {
         const token = JSON.parse(localStorage.getItem('@tokenUser')) 
         const headers = { 
             'Authorization': `Bearer ${token}`,
         };
-        const newProduct = {
-            "name": "Blazer Branco Elegantes",
-            "price": 490,
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin massa metus, tempus nec ex ac, condimentum convallis diam. Donec at nisi lorem. Aliquam non dolor bibendum, venenatis ante ac, lobortis justo. Vestibulum nec pretium mi, eu consequat dolor.",
-            "image": "https://res.cloudinary.com/dsbkp5841/image/upload/v1687807062/Rectangle_4_hwrkgf.jpg"
-          };
+        const newProduct = payload;
         try {
-            await FashionStoreApi.post(`/products`, newProduct, {headers})
-            setProductList([...productList, newProduct])
+            const {data} = await FashionStoreApi.post(`/products`, newProduct, {headers})
+            console.log(data);
+            setProductList([...productList, data])
             toast("Produto add com sucesso")
+            setCreateIsOpen(false)
         } catch (error) {
             toast("Erro ao add o produto")
-        } 
+        }
+    }
+
+    const updateProduct = async (payload, setLoading, id, setEditIsOpen) => {
+        const token = JSON.parse(localStorage.getItem('@tokenUser')) 
+        const headers = { 
+            'Authorization': `Bearer ${token}`,
+        };
+        const body = payload;
+        try {
+            setLoading(true)
+            await FashionStoreApi.put(`/products/${id}`,body , {headers})
+            toast("Produto editado com sucesso")
+        } catch (error) {
+            toast("Erro ao editar o produto")
+        }
+        finally{
+            setLoading(false)
+            setEditIsOpen(false)
+        }
     }
 
     const deleteProduct = async (id, setLoading) =>  {
@@ -112,7 +129,7 @@ export const ProductProvider = ({children}) => {
     }
 
     return (
-        <ProductContext.Provider value={{ productList, renderProducts, product, setProduct, loadProducts, filteredProductList, addProductCart, cartProductList, priceCart, quantityProductCart, removeProductCart, cartProductListFull, deleteProduct, createProduct }} >
+        <ProductContext.Provider value={{ productList, renderProducts, product, setProduct, loadProducts, filteredProductList, addProductCart, cartProductList, priceCart, quantityProductCart, removeProductCart, cartProductListFull, deleteProduct, createProduct , updateProduct}} >
             {children}
         </ProductContext.Provider>
     )

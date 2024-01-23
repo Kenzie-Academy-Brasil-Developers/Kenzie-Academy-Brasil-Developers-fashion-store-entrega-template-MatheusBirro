@@ -3,33 +3,31 @@ import styles from "./styles.module.scss"
 import { ProductContext } from "../../../Providers/ProductsProvider"
 import closeBtn from "../../../assets/CloseBtn.svg"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { formSchemaEditProduct } from "../../FormSchema"
+import { formSchemaCreateProduct } from "../../FormSchema"
 import { useForm } from "react-hook-form";
 import editBtnWhite from "../../../assets/EditBtnWhite.svg"
+import imgDefault from "../../../assets/ImageDefault.svg"
 
 
 
-export const EditProductModal = ({ setEditIsOpen, product }) => {
+export const CreateProductModal = ({ setCreateIsOpen }) => {
   const [loading, setLoading] = useState(false)
-  const {updateProduct, renderProducts} = useContext(ProductContext)
+  const {createProduct, renderProducts} = useContext(ProductContext)
 
   const { register, handleSubmit, formState: {errors}} = useForm({
     values:{
-      name: product.name,
-      price: product.price,
-      image: product.image,
-      description: product.description,
+      image: imgDefault, 
   },
-  resolver: zodResolver(formSchemaEditProduct) 
+  resolver: zodResolver(formSchemaCreateProduct) 
   });
 
   const submit = (payload) => {
-    updateProduct(payload, setLoading, product.id, setEditIsOpen)
+    createProduct(payload, setCreateIsOpen)
   }
 
   useEffect(() => {
     renderProducts({setLoading})
-},[])
+  },[])
 
   return (
     <div className={styles.modalOverlay} >
@@ -37,10 +35,10 @@ export const EditProductModal = ({ setEditIsOpen, product }) => {
         <div className={styles.modal__header}>
           <h3>EDITAR PRODUTO</h3>
           <button className={styles.closeButton} onClick={() => {}}>
-            <img src={closeBtn} alt="Botão de fechar" onClick={()=>{setEditIsOpen(false)}}/>
+            <img src={closeBtn} alt="Botão de fechar" onClick={()=>{setCreateIsOpen(false)}}/>
           </button>
         </div>
-        <form className={styles.product__form} onSubmit={handleSubmit(submit)}>
+          <form className={styles.product__form} onSubmit={handleSubmit(submit)}>
                 <input type="text" placeholder="NOME DO PRODUTO" {...register("name")}/>
                 {errors.name ? <small >{errors.name.message}</small> : null }
                 <input type="text" placeholder="PREÇO (R$)" {...register("price")}/>

@@ -3,7 +3,7 @@ import { useContext, useState } from "react"
 import { ProductContext } from "../../../Providers/ProductsProvider"
 import editBtn from "../../../assets/EditBtn.svg";
 import delteBtn from "../../../assets/DeleteBtn.svg";
-import { EditModal } from "../../Modal/EditProductModal";
+import { EditProductModal } from "../../Modal/EditProductModal";
 
 export const AdminProductCard = ({product}) => {
     const { setProduct, deleteProduct } = useContext(ProductContext)
@@ -22,7 +22,7 @@ export const AdminProductCard = ({product}) => {
                     <div className={styles.product__container_btn}>
                         <img src={editBtn} alt="Simbolo de edição" onClick={()=>{setEditIsOpen(true)}}/>
                         {editIsOpen?
-                            <EditModal setEditIsOpen={setEditIsOpen}/> :
+                            <EditProductModal setEditIsOpen={setEditIsOpen} product={product} /> :
                             null
                         }
                         <img src={delteBtn} alt="Simbolo de lixeira" onClick={() => {deleteProduct(product.id, setLoading)}}/>
