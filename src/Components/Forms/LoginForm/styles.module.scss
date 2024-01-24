@@ -18,7 +18,7 @@
         .login__btn{
             background-color: var(--color-black);
             color: var(--color-white);
-            width: 146px;
+            min-width: 146px;
             height: 60px;
             border: 1px solid var(--color-black);
             font-size: var(--font-size-5);

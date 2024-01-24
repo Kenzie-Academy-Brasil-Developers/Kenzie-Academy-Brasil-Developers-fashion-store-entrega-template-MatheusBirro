@@ -38,7 +38,9 @@ export const RegisterForm = () => {
                 <input type="password" placeholder="CONFIRMAR SENHA" {...register("confirmPassword")}/>
                 {errors.confirmPassword ? <small >{errors.confirmPassword.message}</small> : null }
                 <div>
-                    <button type="submit" className={styles.register__btn} disabled={loading} >CADASTRE-SE</button>
+                    <button type="submit" className={styles.register__btn} disabled={loading} >{loading?
+                        "CARREGANDO":"CADASTRE-SE"
+                    }</button>
                 </div>
             </form>
         </div>

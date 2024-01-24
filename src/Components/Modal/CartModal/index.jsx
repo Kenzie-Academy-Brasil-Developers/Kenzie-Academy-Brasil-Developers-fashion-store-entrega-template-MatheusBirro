@@ -4,11 +4,10 @@ import { ProductContext } from "../../../Providers/ProductsProvider"
 import closeBtn from "../../../assets/CloseBtn.svg"
 
 export const CartModal = ({ setCartIsOpen }) => {
-  const [loading, setLoading] = useState(false)
-  const { cartProductList, priceCart, quantityProductCart, removeProductCart, cartProductListFull, addProductCart } = useContext(ProductContext)
+  const { cartProductList, priceCart, quantityProductCart, removeProductCart, cartProductListFull, addProductCart, setCartProductListFull, setCartProductList } = useContext(ProductContext)
 
   useEffect(()=>{
-
+    
   },[cartProductListFull])
 
   return (

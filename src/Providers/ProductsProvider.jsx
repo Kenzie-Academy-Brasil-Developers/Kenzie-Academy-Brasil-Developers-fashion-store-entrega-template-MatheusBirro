@@ -7,8 +7,8 @@ export const ProductContext = createContext({})
 export const ProductProvider = ({children}) => {
     const [productList, setProductList] = useState([])
     const [filteredProductList, setFilteredProductList] = useState([])
-    const [cartProductListFull, setCartProductListFull] = useState([])
-    const [cartProductList, setCartProductList] = useState([])
+    const [cartProductListFull, setCartProductListFull] = useState(JSON.parse(localStorage.getItem('@cartFashionStoreFull'))? JSON.parse(localStorage.getItem('@cartFashionStoreFull')): [])
+    const [cartProductList, setCartProductList] = useState(JSON.parse(localStorage.getItem('@cartFashionStore'))? JSON.parse(localStorage.getItem('@cartFashionStore')):[])
     const [product, setProduct] = useState({})
 
     const loadProducts = async ({setLoading}) => {
@@ -37,11 +37,13 @@ export const ProductProvider = ({children}) => {
     const addProductCart = (product) => {
         const addProduct = [...cartProductListFull, product]
         setCartProductListFull(addProduct)
+        localStorage.setItem("@cartFashionStoreFull", JSON.stringify(addProduct))
         toast("Produto adicionado ao carrinho")
         
         if (!cartProductList.some((e) => e.id == product.id)) {
             const addProductCartList = [...cartProductList, product]   
             setCartProductList(addProductCartList)
+            localStorage.setItem("@cartFashionStore", JSON.stringify(addProductCartList))
         }
     }
 
@@ -66,12 +68,13 @@ export const ProductProvider = ({children}) => {
         const indexCartListFull = newCartProductListFull.findIndex((product) => product.id === id)
         newCartProductListFull.splice(indexCartListFull, 1)
         setCartProductListFull(newCartProductListFull)
-
+        localStorage.setItem("@cartFashionStoreFull", JSON.stringify(newCartProductListFull))
         if(quantityProductCart(id) === 1) {
             const newCartProductList = [...cartProductList]
             const indexCartList = newCartProductList.findIndex((product) => product.id === id)
             newCartProductList.splice(indexCartList, 1)
             setCartProductList(newCartProductList)
+            localStorage.setItem("@cartFashionStore", JSON.stringify(newCartProductList))
         }
     }
 
@@ -83,7 +86,6 @@ export const ProductProvider = ({children}) => {
         const newProduct = payload;
         try {
             const {data} = await FashionStoreApi.post(`/products`, newProduct, {headers})
-            console.log(data);
             setProductList([...productList, data])
             toast("Produto add com sucesso")
             setCreateIsOpen(false)
@@ -129,7 +131,7 @@ export const ProductProvider = ({children}) => {
     }
 
     return (
-        <ProductContext.Provider value={{ productList, renderProducts, product, setProduct, loadProducts, filteredProductList, addProductCart, cartProductList, priceCart, quantityProductCart, removeProductCart, cartProductListFull, deleteProduct, createProduct , updateProduct}} >
+        <ProductContext.Provider value={{ productList, renderProducts, product, setProduct, loadProducts, filteredProductList, addProductCart, cartProductList, priceCart, quantityProductCart, removeProductCart, cartProductListFull, deleteProduct, createProduct , updateProduct , setCartProductListFull, setCartProductList}} >
             {children}
         </ProductContext.Provider>
     )

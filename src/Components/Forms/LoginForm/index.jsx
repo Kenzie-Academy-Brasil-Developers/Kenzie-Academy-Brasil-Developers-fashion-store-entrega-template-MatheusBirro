@@ -28,7 +28,9 @@ export const LoginForm = () => {
                 <input type="password" placeholder="SENHA" {...register("password")}/>
                 {errors.password ? <small >{errors.password.message}</small> : null }
                 <div>
-                    <button className={styles.login__btn} type="submit" disabled={loading} >ACESSAR</button>
+                    <button className={styles.login__btn} type="submit" disabled={loading} >{loading?
+                        "CARREGANDO":"ACESSAR"
+                    }</button>
                     <button onClick={()=> {navigate("/register")}} className={styles.register__btn} disabled={loading} >CADASTRE-SE</button>
                 </div>
             </form>

@@ -5,10 +5,8 @@ import closeBtn from "../../../assets/CloseBtn.svg"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { formSchemaCreateProduct } from "../../FormSchema"
 import { useForm } from "react-hook-form";
-import editBtnWhite from "../../../assets/EditBtnWhite.svg"
+import plusBtn from "../../../assets/PlusBtn.svg"
 import imgDefault from "../../../assets/ImageDefault.svg"
-
-
 
 export const CreateProductModal = ({ setCreateIsOpen }) => {
   const [loading, setLoading] = useState(false)
@@ -33,7 +31,7 @@ export const CreateProductModal = ({ setCreateIsOpen }) => {
     <div className={styles.modalOverlay} >
       <div className={styles.modalBox}>
         <div className={styles.modal__header}>
-          <h3>EDITAR PRODUTO</h3>
+          <h3>CRIAR PRODUTO</h3>
           <button className={styles.closeButton} onClick={() => {}}>
             <img src={closeBtn} alt="Botão de fechar" onClick={()=>{setCreateIsOpen(false)}}/>
           </button>
@@ -49,8 +47,8 @@ export const CreateProductModal = ({ setCreateIsOpen }) => {
                 {errors.description ? <small >{errors.description.message}</small> : null }
                 <div>
                     <button className={styles.login__btn} type="submit" disabled={loading}>
-                        <img src={editBtnWhite} alt="Simbolo de editar" />
-                        <p>EDITAR PRODUTO</p>
+                        <img src={plusBtn} alt="Simbolo de editar" />
+                        <p>CRIAR PRODUTO</p>
                     </button>
                 </div>
             </form>
