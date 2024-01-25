@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import { TemplatePageAuthenticated } from "../../Components/Templates/TemplatePageAuthenticated"
 import { ProductContext } from "../../Providers/ProductsProvider"
 import cartProduct from "../../assets/CartProduct.svg"
@@ -6,7 +6,7 @@ import styles from "./styles.module.scss"
 import { FilteredProductList } from "../../Components/ProductsList/FilteredProductList"
 
 export const ProductPage = () => {
-  const { product } = useContext(ProductContext)
+  const { product, addProductCart } = useContext(ProductContext)
 
   return (
     <TemplatePageAuthenticated>
@@ -19,7 +19,7 @@ export const ProductPage = () => {
               <h3>{product.name}</h3>
               <p className={styles.card__price} >{product.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</p>
               <p className={styles.card__description}>{product.description}</p>
-              <button>
+              <button onClick={()=>{addProductCart(product)}}>
                 <img src={cartProduct} alt="Adicionar ao carrinho" />
                 <p>ADICIONAR AO CARRINHO</p>
               </button>
