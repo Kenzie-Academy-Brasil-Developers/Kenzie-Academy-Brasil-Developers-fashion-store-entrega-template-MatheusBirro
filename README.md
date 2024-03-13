@@ -22,9 +22,20 @@ O projeto consiste em um site de venda de produto de roupa, onde o usuário cons
 
 Esse foi o figma usado como refência, porém como não havia todas as páginas mobile nele, algumas páginas eu desenvolvi da maneira que achei mais coerente.
 
+## Estilização
+
+Toda a parte de CSS foi feita através da biblioteca do SASS.
+
 ## Bibliotecas Usadas
+- **React**: <https://react.dev/>
 - **ZOD Documentação**: <https://zod.dev/>
 - **React-Toastify Documentação**: <https://fkhadra.github.io/react-toastify/introduction/>
+- **React-axios Documentação**: <https://www.npmjs.com/package/react-axios>
+- **React DOM Documentação**: <https://legacy.reactjs.org/docs/react-dom.html>
+- **React Router DOM Documentação**: <https://reactrouter.com/en/main>
+- **React Hook Form Documentação**: <https://react-hook-form.com/docs>
+- **SASS Documentação**: <https://sass-lang.com/documentation/>
+
 
 ## Páginas
 ### Tela de Cadastro
