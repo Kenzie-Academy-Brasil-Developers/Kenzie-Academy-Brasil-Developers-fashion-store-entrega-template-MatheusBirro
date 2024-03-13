@@ -11,7 +11,7 @@ export const OffersSection = () => {
             <img src={OffersImg} alt="Banner de ofertas" className={styles.offers__img} />
             <div>
                 <h2>KENZIE FASHION STORE</h2>
-                <button onClick={() => {navigate("/login")}}>CONFIRA MAIS</button>
+                <button onClick={() => {navigate("/login")}}>LOGIN</button>
             </div>
         </div>
     )

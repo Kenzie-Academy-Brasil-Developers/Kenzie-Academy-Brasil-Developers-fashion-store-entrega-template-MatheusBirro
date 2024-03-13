@@ -7,6 +7,7 @@ import { useContext } from "react"
 import { ProductContext } from "../Providers/ProductsProvider"
 import { AdminProductPage } from "../Pages/AdminProductPage"
 import { AdminHomePage } from "../Pages/AdminHomePage"
+import { ProtectedAdminRoutes } from "../Components/protectedRoutes"
 
 
 export const RoutesMain = () => {
@@ -18,8 +19,14 @@ export const RoutesMain = () => {
             <Route path={`/product/${product.name}`} element={<ProductPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
-            <Route path="/adminHome" element={<AdminHomePage />} />
-            <Route path="/addProduct" element={<AdminProductPage />} />
+
+            <Route path="/adminHome" element={<ProtectedAdminRoutes />}>
+                <Route index element={<AdminHomePage />} />
+            </Route>
+
+            <Route path="/addProduct" element={<ProtectedAdminRoutes />}>
+                <Route index element={<AdminProductPage />} />
+            </Route>
         </Routes>
     )
 }

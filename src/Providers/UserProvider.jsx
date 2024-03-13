@@ -1,4 +1,4 @@
-import { createContext } from "react"
+import { createContext, useState } from "react"
 import { FashionStoreApi } from "../Services/api"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
@@ -8,12 +8,14 @@ export const UserContext = createContext({})
 
 export const UserProvider = ({children}) => {
     const navigate = useNavigate()
+    const [adminProfile, setAdminProfile] = useState({})
 
     const UserLogin = async (payload, setLoading) => {
         try {
             setLoading(true)
             const {data} = await FashionStoreApi.post("/login", payload)
             localStorage.setItem("@tokenUser", JSON.stringify(data.accessToken))
+            setAdminProfile(data)
             navigate("/adminHome")
             toast("Logado com sucesso!")
         } catch (error) {
@@ -49,7 +51,7 @@ export const UserProvider = ({children}) => {
     }
 
     return (
-        <UserContext.Provider value={{UserLogin, UserRegister}} >
+        <UserContext.Provider value={{UserLogin, UserRegister, adminProfile}} >
             {children}
         </UserContext.Provider>
     )

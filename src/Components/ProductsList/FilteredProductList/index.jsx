@@ -4,10 +4,11 @@ import styles from "./styles.module.scss"
 import { ProductContext } from "../../../Providers/ProductsProvider"
 
 export const FilteredProductList = () => {
-    const { renderProducts, product, filteredProductList } = useContext(ProductContext)
+    const { renderProducts, product, filteredProductList, loadProducts } = useContext(ProductContext)
     const [loading, setLoading] = useState(false)
 
     useEffect( () => {
+        loadProducts()
         renderProducts({setLoading})
     },[product])
 
