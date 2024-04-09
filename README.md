@@ -2,6 +2,8 @@
     <img src="https://github.com/Kenzie-Academy-Brasil-Developers/Kenzie-Academy-Brasil-Developers-fashion-store-entrega-template-MatheusBirro/assets/134952061/149349d7-e76f-4eeb-977d-39caecf4b80f" width="150px"> 
     <img src="https://github.com/Kenzie-Academy-Brasil-Developers/Kenzie-Academy-Brasil-Developers-fashion-store-entrega-template-MatheusBirro/assets/134952061/e923141d-13c2-43ba-a89b-d3a07815f565" width="150px"> 
     <img src="https://github.com/Kenzie-Academy-Brasil-Developers/Kenzie-Academy-Brasil-Developers-fashion-store-entrega-template-MatheusBirro/assets/134952061/caa8ce0c-6261-4600-a47d-9f0fbadce15f" width="150px"> 
+</div>
+<div align="center">
     <img src="https://github.com/Kenzie-Academy-Brasil-Developers/Kenzie-Academy-Brasil-Developers-fashion-store-entrega-template-MatheusBirro/assets/134952061/db8131d3-2152-4dbb-9e53-bcbe36209850" width="148px"> 
     <img src="https://github.com/Kenzie-Academy-Brasil-Developers/Kenzie-Academy-Brasil-Developers-fashion-store-entrega-template-MatheusBirro/assets/134952061/19084779-e7c7-447d-b9f1-625246a3f684" width="150px"> 
     <img src="https://github.com/Kenzie-Academy-Brasil-Developers/Kenzie-Academy-Brasil-Developers-fashion-store-entrega-template-MatheusBirro/assets/134952061/f6633e85-84d3-417c-894d-4b7254dc4bee" width="150px"> 
