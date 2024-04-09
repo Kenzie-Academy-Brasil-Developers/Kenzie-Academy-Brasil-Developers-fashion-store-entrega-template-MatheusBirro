@@ -29,7 +29,7 @@ O projeto consiste em um site de venda de produto de roupa, onde o usuário cons
 >Como a API está rodando em um servidor grátis pode ser que ela demore um pouco para iniciar e após um tempo sem uso o banco de dados será reiniciado.
 
 ## Vercel 
-- **Link**: <https://fashionstore-getfa5zr1-matheusbirros-projects.vercel.app>
+- **Link**: <https://fashionstore-eight.vercel.app/>
 
 ## Figma 
 - **Link**: <https://www.figma.com/file/PjMqKkuTOt87DcufrQ0WJV/Fashion-Store?type=design&node-id=0-1&mode=design>
